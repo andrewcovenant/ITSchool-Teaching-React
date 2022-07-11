@@ -1,16 +1,24 @@
+
+
 import {ProductListing} from './ProductListing';
-import {Header} from './Header';
 import {Checkout} from './Checkout';
 import {ContactUs} from './ContactUs';
+
+import {
+    Routes,
+    Route,
+  } from "react-router-dom";
+  
 
 
 export const Homepage = () => {
     return (
-        <>
-            <Header />
-            <ProductListing/>
-            <Checkout />
-            <ContactUs />
-        </>
+        <div>
+            <Routes>
+                <Route path="/" element={<ProductListing />} />
+                <Route path="/checkout"  element={<Checkout />}/>
+                <Route path="/contact" element={<ContactUs />}/>
+            </Routes>  
+        </div>
     )
 }

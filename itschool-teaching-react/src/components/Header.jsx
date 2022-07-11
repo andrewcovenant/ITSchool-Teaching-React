@@ -1,9 +1,16 @@
+import {
+    Link
+  } from "react-router-dom";
+
+
 export const Header = () => {
     return (
-        <>
-            <a href='#'>Homepage</a>
-            <a href='#'>Cart</a>
-            <a href='#'>Contact</a>
-        </>
+        <div>
+                <Link to="/">Homepage</Link>
+                <Link to="/checkout">Cart</Link>
+                <Link to="/contact">Contact</Link>
+        </div>
     )
 }
+
+          

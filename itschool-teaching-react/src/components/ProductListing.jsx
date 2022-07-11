@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 
+import {Header} from './Header';
 import { Product } from './Product';
 
 export const ProductListing = () => {
@@ -20,6 +21,9 @@ export const ProductListing = () => {
     }
 
     return (
+
+        <>
+        <Header />
         <Container>
             <Row>
                 {data?.map(item => {
@@ -32,5 +36,6 @@ export const ProductListing = () => {
                 })}
             </Row>
         </Container>
+        </>
     )
 }

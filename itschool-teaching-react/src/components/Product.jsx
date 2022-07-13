@@ -2,9 +2,17 @@ import {
     Card, 
     Button
 } from 'react-bootstrap';
+import { useReducer } from 'react';
+import { reducer, initialState } from '../reducer';
 
 export const Product = (props) => {
     const {title, price, image, description} = props;
+    const [product, dispatch] = useReducer(reducer, initialState);
+
+    const dispatchBody = {
+        type: "addToCard",
+        payload: {title:title}
+    }
 
     return (
         <Card>
@@ -17,7 +25,7 @@ export const Product = (props) => {
                 <Card.Text>
                     {price}
                 </Card.Text>
-                <Button variant="warning">Add to Cart</Button>
+                <Button onClick={()=> dispatch(dispatchBody)} variant="warning">Add to Cart</Button>
             </Card.Body>
         </Card>
     )

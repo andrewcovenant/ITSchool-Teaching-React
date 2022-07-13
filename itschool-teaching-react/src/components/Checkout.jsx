@@ -1,7 +1,8 @@
-
+import { initialState } from '../reducer';
 import {Header} from './Header';
 
 export const Checkout = () => {
+    console.log(initialState);
     return (
         <>
         <Header />

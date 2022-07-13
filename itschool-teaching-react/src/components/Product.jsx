@@ -1,3 +1,6 @@
+import { useReducer } from 'react';
+import {reducer, initialState} from '../reducer' 
+
 import {
     Card, 
     Button
@@ -5,6 +8,11 @@ import {
 
 export const Product = (props) => {
     const {title, price, image, description} = props;
+    const [product, dispatch] = useReducer(reducer, initialState);
+    const dispatchBody= {
+        type: 'addToCart', 
+        payLoad: {title:title}
+    }
 
     return (
         <Card>
@@ -17,7 +25,7 @@ export const Product = (props) => {
                 <Card.Text>
                     {price}
                 </Card.Text>
-                <Button variant="warning">Add to Cart</Button>
+                <Button onClick={()=> dispatch(dispatchBody)}variant="warning">Add to Cart</Button>
             </Card.Body>
         </Card>
     )
